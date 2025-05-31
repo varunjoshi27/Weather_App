@@ -1,7 +1,11 @@
-.Infobox{
+.Infobox {
     text-align: center;
-}
-.card{
     display: flex;
     justify-content: center;
+    padding: 20px;
+}
+
+.card {
+    width: 100%;
+    max-width: 500px; /* Control the width here */
 }

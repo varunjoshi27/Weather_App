@@ -3,6 +3,9 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import './Infobox.css';
+import AcUnitIcon from '@mui/icons-material/AcUnit';
+import ThunderstormIcon from '@mui/icons-material/Thunderstorm';
+import SunnyIcon from '@mui/icons-material/Sunny';
 export default function Infobox({ info }) {
   const INIT_URL =
     'https://images.unsplash.com/photo-1657593796189-4978b705260e?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8Y2xlYXIlMjB3ZWF0aGVyfGVufDB8fDB8fHww';
@@ -16,7 +19,7 @@ export default function Infobox({ info }) {
   return (
     <div className="Infobox">
       <div className="card">
-        <Card sx={{ maxWidth: 345 }}>
+        <Card sx={{ maxWidth: '100%' }}>
           <CardMedia
             sx={{ height: 140 }}
             image={
@@ -31,6 +34,13 @@ export default function Infobox({ info }) {
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
               {info.city}
+              {info.humidity > 80 ? (
+                <ThunderstormIcon />
+              ) : info.temp > 15 ? (
+                <SunnyIcon />
+              ) : (
+                <AcUnitIcon />
+              )}
             </Typography>
             <Typography variant="body2" sx={{ color: 'text.secondary' }}>
               <p>Tempereature={info.temp}&deg;C</p>
